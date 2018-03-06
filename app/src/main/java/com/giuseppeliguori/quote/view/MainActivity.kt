@@ -3,15 +3,21 @@ package com.giuseppeliguori.quote.view
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.TextView
 import com.giuseppeliguori.quote.R
+import com.giuseppeliguori.quote.model.DataModel
+import com.giuseppeliguori.quote.model.Quote
 import com.giuseppeliguori.quote.presenter.MainContract
 import com.giuseppeliguori.quote.presenter.MainPresenter
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
+    var tvPhrase: TextView? = null
+    var tvAuthor: TextView? = null
+
     val TAG: String = "MainActivity"
 
-    val mainPresenter: MainPresenter = MainPresenter(this)
+    val mainPresenter: MainPresenter = MainPresenter(this, DataModel())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +25,17 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         mainPresenter.onViewCreated()
 
+        mainPresenter.getQuote()
     }
 
     override fun initialiseView() {
         Log.d(TAG, "initialiseView")
+        tvPhrase = findViewById(R.id.phrase)
+        tvAuthor = findViewById(R.id.author)
+    }
+
+    override fun showQuote(quote: Quote) {
+        tvPhrase?.setText(quote.phrase)
+        tvAuthor?.setText(quote.author)
     }
 }
