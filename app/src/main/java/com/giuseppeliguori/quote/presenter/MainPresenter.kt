@@ -24,5 +24,6 @@ class MainPresenter(view: MainContract.View, dataModel: DataModel) : Presenter {
     override fun getQuote() {
         val quote: Quote = dataModel.getQuote()
         view?.showQuote(quote)
+        view?.setShareButtonEvent(quote)
     }
 }

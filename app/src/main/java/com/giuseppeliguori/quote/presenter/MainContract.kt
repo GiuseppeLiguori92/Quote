@@ -9,6 +9,7 @@ interface MainContract {
     interface View {
         fun initialiseView()
         fun showQuote(quote: Quote)
+        fun setShareButtonEvent(quote: Quote)
     }
 
     interface Presenter {
