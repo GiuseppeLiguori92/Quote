@@ -11,7 +11,7 @@ class QuoteProviderTest {
     @Test
     fun getQuote() {
         val quoteProvider = QuoteProvider()
-        var phrase = quoteProvider.getQuote().phrase
-        assertTrue("Imagination is more important than knowledge.".equals(phrase))
+        val phrase = quoteProvider.getQuote().phrase
+        assertEquals("Imagination is more important than knowledge.", phrase)
     }
 }

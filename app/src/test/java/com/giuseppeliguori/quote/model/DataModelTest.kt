@@ -9,6 +9,7 @@ import org.mockito.Mockito.*
  * Created by giuseppeliguori on 14/03/2018.
  */
 class DataModelTest {
+
     @Test
     fun getQuote() {
         val dataModel = spy(DataModel())

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     override fun setShareButtonEvent(quote: Quote) {
         imgBtnShare?.setOnClickListener({
-            startActivity(Utils().getShareIntent(quote))
+            startActivity(Utils.getSharedIntentWithQuote(quote))
         })
     }
 }
